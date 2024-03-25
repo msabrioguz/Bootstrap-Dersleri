@@ -1,0 +1,43 @@
+$bgColoRed: red;
+$bgColoBlue: blue;
+$w150: 150px;
+$w100: 100px;
+$h150: 150px;
+$h100: 100px;
+
+.container {
+  display: flex;
+  div {
+    margin-right: 10px;
+    &.box1 {
+      width: $w150;
+      height: $h150;
+    }
+  }
+}
+
+@mixin deneme($color, $w, $h){
+    background-color: $color;
+    margin: 10px;
+    width: $w;
+    height: $h;
+}
+
+.box1{
+    @include deneme(blue, $w150, $h150);
+}
+
+.box2{
+    @extend .box1;
+    width: $w100 * 2 !important;
+    background-color: $bgColoRed;
+}
+
+.box3{
+    @extend .box2;
+    background-color: yellow;
+}
+
+.box4{
+    @include deneme(green, $w150, $h150);
+}
